@@ -85,7 +85,7 @@ public class DealsPage extends TestBase{
     
     
 }
-	
+	//check on git
 	
 
 

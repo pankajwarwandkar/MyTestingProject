@@ -1,0 +1,13 @@
+rough\Test.class
+com\crm\qa\pages\ContactsPage.class
+com\crm\qa\pages\DealsPage.class
+com\crm\qa\pages\HomePage.class
+com\crm\qa\pages\TasksPage.class
+com\crm\qa\pages\LoginPage.class
+rough\TestGetDataMethod.class
+com\crm\qa\extentReportListener\ExtentReporterNG.class
+com\crm\qa\base\TestBase.class
+com\crm\qa\util\TestUtil.class
+com\crm\qa\pages\SignUpPage.class
+com\crm\qa\util\WebEventListener.class
+rough\Test1.class

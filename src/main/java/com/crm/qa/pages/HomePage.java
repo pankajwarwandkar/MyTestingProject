@@ -50,14 +50,24 @@ public class HomePage extends TestBase {
 	//@CacheLookup
 	WebElement newContactLink;
 	
+
+	@FindBy(xpath="//*[@id='ui']/div/div/a[3]")
+	WebElement contactPageClick;
+	
+	public ContactsPage clickOnContactPage() throws IOException {
+		 contactPageClick.click();
+		 return new ContactsPage();
+		
+	}
+	
 	public String verifyHomepageTitle(){
 		return driver.getTitle();
 	}
 	
-	public ContactsPage clickOnContactsLink() throws IOException{
-		contactsLink.click();
-		return new ContactsPage();
-	}
+	//public ContactsPage clickOnContactsLink() throws IOException{
+		//contactsLink.click();
+		//return new ContactsPage();
+	//}
 	
 	//public DealsPage clickOnDealsLink() throws Exception{
 		//dealsLink.click();

@@ -28,38 +28,26 @@ public class ContactsPageTest extends TestBase{
 	@BeforeMethod
 	public void setUp() throws IOException{
 		initialization();
-	loginPage= new LoginPage();
-		homePage=loginPage.login(prop.getProperty("username"),
-					prop.getProperty("password"));
-		testUtil=new TestUtil();
-		contactsPage= new ContactsPage();
-		testUtil.switchToFrame("mainpanel");
-		//homePage.clickOnContactsLink();
+		loginPage= new LoginPage();
+		loginPage.loginButton();
+			loginPage.login(prop.getProperty("username"),
+				prop.getProperty("password"));
+
 	}
 	
 	@Test(priority=1)
-	public void selectSingleContactTest(){
+	public void createNEwContactTest() throws Exception{
 		try {
-			homePage.clickOnContactsLink();
+			homePage= new HomePage();
+			homePage.clickOnContactPage();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		contactsPage.selectContactsByName("Amit1 Pradhan1");
+		contactsPage= new ContactsPage();
+		contactsPage.creadtNewContact("Demo", "One");
 	}
-	
-	@Test(priority=2)
-	public void selectMultipleContactTest(){
-		try {
-			homePage.clickOnContactsLink();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		contactsPage.selectContactsByName("Amit1 Pradhan1");
-		contactsPage.selectContactsByName("Amit2 Pradhan2");
-	}
-	
+	/*
 	@Test(dataProvider="getCRMTestData")
 	public void validateCreatenewContact(String title, String fName,
 						String lName, String company){
@@ -73,10 +61,10 @@ public class ContactsPageTest extends TestBase{
 		Object[][] data = TestUtil.getTestData(sheetName);
 		return data;
 	}
-	
+	*/
 	@AfterMethod
 	public void tearDown(){
-		driver.quit();
+	driver.quit();
 	}
 
 }

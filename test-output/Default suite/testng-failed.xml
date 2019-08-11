@@ -3,14 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.crm.testcases.DealerPage">
+      <class name="com.crm.testcases.ContactsPageTest">
         <methods>
-          <include name="testFullSearchFormDealer"/>
-          <include name="testExcitingDealer"/>
-          <include name="testNewDealer"/>
-          <include name="dealerPage"/>
+          <include name="selectMultipleContactTest"/>
+          <include name="tearDown"/>
+          <include name="setUp"/>
         </methods>
-      </class> <!-- com.crm.testcases.DealerPage -->
+      </class> <!-- com.crm.testcases.ContactsPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.crm.qa.base.TestBase;
 
+import showFilter.isDisplayed;
+
 public class ContactsPage extends TestBase{
 	
 	//Initializing page object
@@ -28,18 +30,39 @@ public class ContactsPage extends TestBase{
 	@FindBy(name="title")
 	WebElement title;
 	
-	@FindBy(id="first_name")
+	
+	@FindBy(xpath="//*[@id='ui']/div/div/a[3]")
+	WebElement contactPageClick;
+	
+	@FindBy(name="first_name")
 	WebElement firstName;
 	
-	@FindBy(id="surname")
+	@FindBy(name="last_name")
 	WebElement lastName;
+	
+	
+	
+	//*[@id='ui']/div/div/a[3]
+	
+	@FindBy(xpath="//*[contains(text(),'Show Filters')]")
+	WebElement showFilter;
+	
+	@FindBy(xpath="//a[@href='/contacts/new']")
+	WebElement newContact;
+	
+	
 	
 	@FindBy(name="client_lookup")
 	WebElement companyName;
 	
-	@FindBy(xpath="//input[@value='Save']")
+	@FindBy(xpath="//*[@class='save icon']")
 	WebElement saveBtn;
 	
+	public boolean showFilter() {
+	return showFilter.isDisplayed(); 	
+	}
+	
+	/*
 	public void createNewContact(String titleText, String fName, String lName, String company){
 		Select titleDropDown = new Select(title);
 		titleDropDown.selectByVisibleText(titleText);
@@ -49,8 +72,26 @@ public class ContactsPage extends TestBase{
 		companyName.sendKeys(company);
 		saveBtn.click();		
 		
+		
+		*/
+		
+	public void clickOnContactPage() {
+		contactPageClick.click();
 	}
 	
 	
+		public void creadtNewContact(String fName, String lName)
+		{
+			newContact.click();
+			firstName.sendKeys(fName);
+			lastName.sendKeys(lName);	
+			saveBtn.click();
+			
+		}
+			
+		
+	} 	
 	
-}
+	
+	
+

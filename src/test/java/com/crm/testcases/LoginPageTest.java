@@ -27,21 +27,25 @@ public class LoginPageTest extends TestBase{
 	initialization();
 		try {
 			loginPage= new LoginPage();
-		loginPage.login(prop.getProperty("username"),
+		loginPage.loginButton();
+			loginPage.login(prop.getProperty("username"),
 				prop.getProperty("password"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}	
-/*
-	}
-@Test(priority=1)
-	public void loginPageTitle(){
-		String actualTitle = loginPage.validateTitle();
-	//String actualTitle = driver.getTitle();
-		Assert.assertEquals(actualTitle,expectedTitle );
 	}
 	
+
+@Test(priority=1)
+	public void VerifyLoginSuccesfully(){
+	
+	String actualTitle=loginPage.verifyHomepageTitle();
+		String expectedTitle = "CRM";
+	//String actualTitle = driver.getTitle();
+		Assert.assertEquals(actualTitle,expectedTitle, "Logn Fail");
+	}
+/*	
 	@Test(priority=2)
 	public void crmLogoImageTest(){
 		boolean flag =loginPage.validateCRMImage();
@@ -73,15 +77,11 @@ public class LoginPageTest extends TestBase{
 		Assert.assertTrue(flag);
 	}
 	
-	
+	*/
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();
 	}
-*/
+
 }
-	private void login1() {
-		// TODO Auto-generated method stub
-		
-	}
-}
+//	private void login1(

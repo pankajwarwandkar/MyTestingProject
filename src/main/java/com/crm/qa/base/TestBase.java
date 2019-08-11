@@ -57,8 +57,7 @@ public class TestBase {
 	String browserName=prop.getProperty("browser");
 		
 		if(browserName.equalsIgnoreCase("chrome")){
-			System.setProperty("webdriver.chrome.driver",
-					System.getProperty("user.dir")+"//drivers//chromedriver.exe" );
+			System.setProperty("webdriver.chrome.driver","D://selanium class//crmproject//drivers//chromedriver.exe");
 			driver = new ChromeDriver();
 		}else if(browserName.equalsIgnoreCase("IE")){
 			System.setProperty("webdriver.ie.driver",
@@ -66,8 +65,9 @@ public class TestBase {
 			driver = new InternetExplorerDriver();
 		}else
 
-	browserName.equals("mozilla");
-	
+	browserName.equalsIgnoreCase("mozilla");
+		System.setProperty("webdriver.gecko.driver","D://selanium class//crmproject//drivers//geckodriver.exe");
+		//D:\selanium class\crmproject\drivers\geckodriver.exe
 	driver = new FirefoxDriver();
 		
 		/**
@@ -95,6 +95,7 @@ public class TestBase {
 		
 		//Launch URL
 		driver.get(prop.getProperty("url"));
+		
 		//driver.get(prop.getProperty("firstName"));
 		//driver.get(prop.getProperty("lastName1"));
 		

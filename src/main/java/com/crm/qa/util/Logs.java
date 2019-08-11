@@ -2,6 +2,8 @@ package com.crm.qa.util;
 
 import java.util.logging.Logger;
 
+import com.relevantcodes.extentreports.model.Log;
+
 public class Logs{
 
 	

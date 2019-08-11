@@ -17,10 +17,10 @@ public class SigninTest extends TestBase{
 	
 	}
 @Test
-	public void signInFunTest()
+	public void signInFunTest() throws IOException
 	{
 		initialization();
-		;
+
 		try {
 			sn = new SignUpPage();
 		} catch (IOException e) {

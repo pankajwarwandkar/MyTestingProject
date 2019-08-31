@@ -5,9 +5,7 @@
     <classes>
       <class name="com.crm.testcases.ContactsPageTest">
         <methods>
-          <include name="selectMultipleContactTest"/>
-          <include name="tearDown"/>
-          <include name="setUp"/>
+          <include name="createNEwContactTest"/>
         </methods>
       </class> <!-- com.crm.testcases.ContactsPageTest -->
     </classes>

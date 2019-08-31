@@ -10,7 +10,7 @@
   <test name="Test">
     <classes>
       <class name="com.crm.testcases.LoginPageTest"/>
-      <class name ="com.crm.testcases.ContactsPage"/>
+      <class name ="com.crm.testcases.ContactsPageTest"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

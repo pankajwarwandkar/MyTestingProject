@@ -25,7 +25,17 @@ public class ContactsPageTest extends TestBase{
 		 super();
 	
 	}
-	@BeforeMethod
+
+	 
+	 @DataProvider(name="ContactPageData")
+		public Object[][]  readData()
+		{
+			Object[][] datadisplay=testUtil.getTestData("D:/selanium class/crmproject/src/main/resources/readData.xlsx", "contact");
+			return datadisplay;
+			
+		}
+	 
+	 @BeforeMethod
 	public void setUp() throws IOException{
 		initialization();
 		loginPage= new LoginPage();
@@ -35,17 +45,21 @@ public class ContactsPageTest extends TestBase{
 
 	}
 	
-	@Test(priority=1)
-	public void createNEwContactTest() throws Exception{
-		try {
-			homePage= new HomePage();
-			homePage.clickOnContactPage();
+	
+	
+	
+	@Test(dataProvider="ContactPageData")
+	public void createNEwContactTest(String Contact, String lName) throws Exception{
+	/*	try {
+		//	homePage= new HomePage();
+			//homePage.clickOnContactPage();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		*/
 		contactsPage= new ContactsPage();
-		contactsPage.creadtNewContact("Demo", "One");
+		contactsPage.creadtNewContact(Contact, lName);
 	}
 	/*
 	@Test(dataProvider="getCRMTestData")

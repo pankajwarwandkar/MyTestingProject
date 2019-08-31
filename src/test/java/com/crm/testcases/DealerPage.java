@@ -60,12 +60,12 @@ public void testNewDealer(String name) throws IOException, InterruptedException
 ds.newDealerEntery(name);
 
 	}
-	@DataProvider
-	public Object[][] getCRMTestData(){
-		Object[][] data = TestUtil.getTestData("Sheet2");
-		return data;
+	//@DataProvider
+	//public Object[][] getCRMTestData(){
+	//	Object[][] data = TestUtil.getTestData("Sheet2");
+	//	return data;
 
-	}
+	//}
 	@Test(priority=2)
 public void testExcitingDealer()
 {

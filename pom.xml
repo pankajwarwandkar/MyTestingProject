@@ -78,14 +78,14 @@
 			<configuration>
 				<suiteXmlFiles>
 				<!-- TestNG suite XML files -->
-					<suiteXmlFile>D:\selanium class\crmproject\src\main\resources\testng_sanity.xml</suiteXmlFile>
+					<suiteXmlFile>D:\selanium class\crmproject\testng_sanity.xml</suiteXmlFile>
 				</suiteXmlFiles>
 			</configuration>
 	</plugin>
 	 <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>3.0</version>
+        <version>3.6.1</version>
         <configuration>
           <source>1.8</source>
           <target>1.8</target>

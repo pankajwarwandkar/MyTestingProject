@@ -10,7 +10,7 @@ import org.openqa.selenium.support.ui.Select;
 
 import com.crm.qa.base.TestBase;
 
-import showFilter.isDisplayed;
+
 
 public class ContactsPage extends TestBase{
 	
@@ -78,6 +78,7 @@ public class ContactsPage extends TestBase{
 	public void clickOnContactPage() {
 		contactPageClick.click();
 	}
+	
 	
 	
 		public void creadtNewContact(String fName, String lName)

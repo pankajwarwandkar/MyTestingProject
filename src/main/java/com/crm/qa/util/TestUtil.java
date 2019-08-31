@@ -12,8 +12,10 @@ import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.ss.usermodel.WorkbookFactory;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
+import org.testng.annotations.DataProvider;
 
 import com.crm.qa.base.TestBase;
 
@@ -45,12 +47,12 @@ public class TestUtil extends TestBase{
 	 
 	}
 	
-	
-	public static Object[][] getTestData(String sheetName){
+//	@DataProvider(name="ContactPageData")
+	public  Object[][] getTestData(String readFile ,String sheetName){
 		FileInputStream file=null;
 		
 			try {
-				file=new FileInputStream(TESTDATA_SHEET_PATH);
+				file=new FileInputStream(readFile);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -59,10 +61,9 @@ public class TestUtil extends TestBase{
 				 * It will give the handle to call method of Workbook interface
 				 * As good as creating object of XSSFWorkbook class
 				 */
-				book=WorkbookFactory.create(file);
+				// book=WorkbookFactory.create(file);
+				book=new XSSFWorkbook(file);
 			} catch (EncryptedDocumentException e) {
-					e.printStackTrace();
-			} catch (InvalidFormatException e) {
 					e.printStackTrace();
 			} catch (IOException e) {
 					e.printStackTrace();

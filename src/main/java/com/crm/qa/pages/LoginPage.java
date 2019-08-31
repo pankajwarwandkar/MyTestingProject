@@ -29,7 +29,7 @@ public class LoginPage extends TestBase{
 	 *
 	 */
 	
-	@FindBy(xpath="//*[contains(text(),'Login')]")
+	@FindBy(xpath="//*[contains(text(),'Log In')]")
 	WebElement login;
 	//*[contains(text(),'Log In')]		
 	//@FindBy(name="password11")

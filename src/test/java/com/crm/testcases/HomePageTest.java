@@ -62,17 +62,17 @@ public class HomePageTest extends TestBase {
 		Assert.assertTrue(homePage.verifyCorrectUserName());
 	}
 	
-	@Test(priority=3)
+	/*@Test(priority=3)
 	public void verifyContactsLinkTest(){
 		testUtil.switchToFrame("mainpanel");
 		try {
-			contactsPage=homePage.clickOnContactsLink();
-		} catch (IOException e) {
+		//	contactsPage=homePage.clickOnNewContactLink();
+		//} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-	
+	*/
 	@AfterMethod
 	public void tearDown(){
 		driver.quit();

@@ -3,11 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.crm.testcases.ContactsPageTest">
+      <class name="com.crm.testcases.CalenderTest">
         <methods>
-          <include name="createNEwContactTest"/>
+          <include name="quit1"/>
+          <include name="newEventTest"/>
+          <include name="readCalenderData"/>
         </methods>
-      </class> <!-- com.crm.testcases.ContactsPageTest -->
+      </class> <!-- com.crm.testcases.CalenderTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

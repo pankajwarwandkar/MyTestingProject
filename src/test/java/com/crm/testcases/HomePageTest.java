@@ -33,22 +33,37 @@ public class HomePageTest extends TestBase {
 	
 	@BeforeMethod
 	public void setUp() throws IOException{
-		initialization();
+	initialization();
 		try {
 			loginPage= new LoginPage();
+			contactsPage=new ContactsPage();
+			homePage=new HomePage();
+			loginPage.login(prop.getProperty("username"),
+				prop.getProperty("password"));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
-		try {
-			homePage=loginPage.login(prop.getProperty("username"), prop.getProperty("password"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		testUtil=new TestUtil();
+		}	
+	}
+
+	
+	
+	@Test(priority=1)
+	public void verifyContactPageTitleTest() throws IOException, InterruptedException{
+		Thread.sleep(8000);
+	homePage.clickOnContactPage();
+	Thread.sleep(8000);
+	homePage.contactPageTitle();
+	
 	}
 	
+	@Test(priority= 2)
+	public void verifyHomePageTitle()
+	{
+		homePage.homePageTitle();
+	}
+	
+	/*
 	@Test(priority=1)
 	public void verifyHomePageTitleTest(){
 		String homepageTitle=homePage.verifyHomepageTitle();
@@ -75,7 +90,7 @@ public class HomePageTest extends TestBase {
 	*/
 	@AfterMethod
 	public void tearDown(){
-		driver.quit();
+		//driver.quit();
 	}
 	
 	

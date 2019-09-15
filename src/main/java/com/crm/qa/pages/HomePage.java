@@ -7,7 +7,10 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
+
 import com.crm.qa.base.TestBase;
+import com.crm.qa.util.TestUtil;
 
 /**
  * @CacheLookup annotation is used to improve the performance of the script.
@@ -23,7 +26,10 @@ import com.crm.qa.base.TestBase;
  *
  */
 public class HomePage extends TestBase {
-	
+	public LoginPage loginPage;
+	HomePage homePage;
+	TestUtil testUtil;
+	ContactsPage contactsPage;
 	//Initializing page object
 	public HomePage() throws IOException  {
 		super();
@@ -50,7 +56,10 @@ public class HomePage extends TestBase {
 	//@CacheLookup
 	WebElement newContactLink;
 	
-
+/*
+	@FindBy(xpath="//*[@id='ui']/div/div/a[3]")
+	WebElement contactPageClick;
+	*/
 	@FindBy(xpath="//*[@id='ui']/div/div/a[3]")
 	WebElement contactPageClick;
 	
@@ -60,8 +69,11 @@ public class HomePage extends TestBase {
 		
 	}
 	
-	public String verifyHomepageTitle(){
-		return driver.getTitle();
+	public void homePageTitle(){
+		
+		String actualTitle=driver.getTitle();
+		Assert.assertEquals(actualTitle,"CRM", "Title is wrong");// use to get homepage title Sep07 2019
+		
 	}
 	
 	//public ContactsPage clickOnContactsLink() throws IOException{
@@ -75,7 +87,12 @@ public class HomePage extends TestBase {
 	
 		
 	
-	
+	public void contactPageTitle()
+	{
+		contactPageClick.click();
+		 	String actualTitle=driver.getTitle(); //use to get contect page title Sep07 2019
+	  Assert.assertEquals(actualTitle,"CRM", "Title is wrong" );
+	}
 	
 	
 /*	public TasksPage clickOnTaskLink(){

@@ -16,6 +16,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
 
 import com.crm.qa.base.TestBase;
 
@@ -48,11 +49,12 @@ public class TestUtil extends TestBase{
 	}
 	
 //	@DataProvider(name="ContactPageData")
-	public  Object[][] getTestData(String readFile ,String sheetName){
+
+	public  static Object[][] getTestData(String sheetName) throws InvalidFormatException{
 		FileInputStream file=null;
 		
 			try {
-				file=new FileInputStream(readFile);
+				file=new FileInputStream("D:/selanium class/crmproject/src/main/resources/readData.xlsx");
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}
@@ -61,8 +63,8 @@ public class TestUtil extends TestBase{
 				 * It will give the handle to call method of Workbook interface
 				 * As good as creating object of XSSFWorkbook class
 				 */
-				// book=WorkbookFactory.create(file);
-				book=new XSSFWorkbook(file);
+				 book=WorkbookFactory.create(file);
+				//book=new XSSFWorkbook(file);
 			} catch (EncryptedDocumentException e) {
 					e.printStackTrace();
 			} catch (IOException e) {
@@ -78,7 +80,7 @@ public class TestUtil extends TestBase{
 			for (int i = 0; i < rows; i++) {
 				for (int j = 0; j < cols; j++) {
 					data[i][j]=sheet.getRow(i+1).getCell(j).toString().trim();
-					System.out.print(data[i][j]+"--");
+					//System.out.print(data[i][j]+"--");
 				}
 				System.out.println();
 			}

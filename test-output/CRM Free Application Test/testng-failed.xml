@@ -9,12 +9,11 @@
       <class name="com.crm.testcases.ContactsPageTest">
         <methods>
           <include name="createNEwContactTest"/>
-          <include name="setUp"/>
         </methods>
       </class> <!-- com.crm.testcases.ContactsPageTest -->
       <class name="com.crm.testcases.LoginPageTest">
         <methods>
-          <include name="VerifyLoginSuccesfully"/>
+          <include name="tearDown"/>
           <include name="setUp"/>
         </methods>
       </class> <!-- com.crm.testcases.LoginPageTest -->

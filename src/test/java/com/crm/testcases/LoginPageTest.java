@@ -5,16 +5,19 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.crm.qa.base.TestBase;
 import com.crm.qa.pages.ForgotPasswordPage;
 import com.crm.qa.pages.HomePage;
 import com.crm.qa.pages.LoginPage;
+import com.crm.qa.util.TestUtil;
 
 public class LoginPageTest extends TestBase{
 	public LoginPage loginPage;
 	HomePage  homePage;
+	TestUtil testUtil;
 	ForgotPasswordPage forgotPassword;
 	String expectedTitle="#1 Free CRM for Any Business: Online Customer Relationship Software";
 	
@@ -27,7 +30,6 @@ public class LoginPageTest extends TestBase{
 	initialization();
 		try {
 			loginPage= new LoginPage();
-		loginPage.loginButton();
 			loginPage.login(prop.getProperty("username"),
 				prop.getProperty("password"));
 		} catch (IOException e) {
@@ -35,6 +37,7 @@ public class LoginPageTest extends TestBase{
 			e.printStackTrace();
 		}	
 	}
+
 	
 
 @Test(priority=1)

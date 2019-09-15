@@ -2,6 +2,7 @@ package com.crm.testcases;
 
 import java.io.IOException;
 
+import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
@@ -14,52 +15,59 @@ import com.crm.qa.pages.LoginPage;
 import com.crm.qa.util.TestUtil;
 
 public class ContactsPageTest extends TestBase{
-	LoginPage loginPage;
+	public LoginPage loginPage;
 	HomePage homePage;
 	TestUtil testUtil;
 	ContactsPage contactsPage;
 	String sheetName="Contacts";
+	public Object[][] datadisplay;
 	
-	 ContactsPageTest() throws IOException{
+	public ContactsPageTest() throws IOException{
 	
 		 super();
 	
 	}
 
 	 
-	 @DataProvider(name="ContactPageData")
-		public Object[][]  readData()
+	 @DataProvider
+		public Object[][]  readData() throws InvalidFormatException
 		{
-			Object[][] datadisplay=testUtil.getTestData("D:/selanium class/crmproject/src/main/resources/readData.xlsx", "contact");
-			return datadisplay;
-			
+			Object[][]	datadisplay = TestUtil.getTestData("contact");
+			return datadisplay;	
 		}
 	 
 	 @BeforeMethod
-	public void setUp() throws IOException{
-		initialization();
-		loginPage= new LoginPage();
-		loginPage.loginButton();
-			loginPage.login(prop.getProperty("username"),
-				prop.getProperty("password"));
-
+	public void launchBrowser() throws IOException{
+			initialization();
+			try {
+				loginPage= new LoginPage();
+				contactsPage= new ContactsPage();
+				homePage= new HomePage();
+				testUtil=new TestUtil();;
+				loginPage.login(prop.getProperty("username"),
+					prop.getProperty("password"));
+				
+				homePage.clickOnContactPage();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+		
+			}	
 	}
 	
 	
 	
 	
-	@Test(dataProvider="ContactPageData")
-	public void createNEwContactTest(String Contact, String lName) throws Exception{
-	/*	try {
-		//	homePage= new HomePage();
-			//homePage.clickOnContactPage();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		*/
-		contactsPage= new ContactsPage();
-		contactsPage.creadtNewContact(Contact, lName);
+	@Test(priority=1 ,dataProvider="readData")
+	public void testContactPage(String Fname, String Lname) throws IOException {
+	//homePage= new HomePage();
+	//homePage.clickOnContactPage();
+	//contactsPage= new ContactsPage();
+	//contactsPage.clickOnContactPage();
+	contactsPage.creadtNewContact(Fname,Lname);
+	
+		//contactsPage= new ContactsPage();
+	//	contactsPage.creadtNewContact(Contact, lName);
 	}
 	/*
 	@Test(dataProvider="getCRMTestData")

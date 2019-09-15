@@ -71,14 +71,17 @@ public class LoginPage extends TestBase{
 	}
 
 	
-	public void  loginButton() {
+	/*public void  loginButton((String username, String password)) {
 	WebDriverWait wait = new WebDriverWait(driver, 20);
 			wait.until(ExpectedConditions.visibilityOf(login));
 			login.click();
+			username1.sendKeys(username);
+			password1.sendKeys(password);
+			loginSubmitButton.click();
 		
 		
 	}
-	
+	*/
 	
 	public String verifyHomepageTitle(){
 		return driver.getTitle();
@@ -102,6 +105,9 @@ public class LoginPage extends TestBase{
 	//HomePage is the landing page of Login method
 	
 	public HomePage login(String username, String password) throws IOException{
+		WebDriverWait wait = new WebDriverWait(driver, 20);
+		wait.until(ExpectedConditions.visibilityOf(login));
+		login.click();
 		username1.sendKeys(username);
 		password1.sendKeys(password);
 		loginSubmitButton.click();
